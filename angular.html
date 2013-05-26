@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>04 Share Data between Controllers </title>
+    <title>05 define a method on scope</title>
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap.css">
   </head>
   <body>
@@ -9,16 +9,10 @@
       <div ng-controller="FirstCtrl">  
         <input type="text" ng-model="data.message">
         <h5>{{data.message}}</h5>
-        <div class="{{data.message}}">
-          {{data.message}}
-        </div>
       </div>
       <div ng-controller="SecondCtrl">  
         <input type="text" ng-model="data.message">
-        <h5>{{data.message}}</h5>
-        <div class="{{data.message}}">
-          {{data.message}}
-        </div>
+        <h5>{{reverseMessage(data.message)}}</h5>
       </div>
     </div>
     <script type="text/javascript" src="vendor/angular.js"></script>

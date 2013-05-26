@@ -9,4 +9,7 @@ function FirstCtrl($scope, Data){
 
 function SecondCtrl($scope, Data){
   $scope.data = Data;
+  $scope.reverseMessage = function(message){
+    return message.split("").reverse().join("");
+  }
 }
