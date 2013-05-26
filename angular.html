@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>02 Controller</title>
+    <title>03 the Dot</title>
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap.css">
     <script type="text/javascript" src="script/main.js"></script>
   </head>
   <body>
     <div ng-app="">
+      <input type="text" ng-model="message">
+      <h5>{{message}}</h5>
+      <div class="{{message}}">
+        {{message}}
+      </div>
       <div ng-controller="FirstCtrl">  
+        <input type="text" ng-model="message">
+        <h5>{{message}}</h5>
+        <div class="{{message}}">
+          {{message}}
+        </div>
+      </div>
+      <div ng-controller="SecondCtrl">  
+        <input type="text" ng-model="message">
+        <h5>{{message}}</h5>
+        <div class="{{message}}">
+          {{message}}
+        </div>
+      </div>
+
+      <hr>
+      <hr>
+      <input type="text" ng-model="data.message">
+      <h5>{{data.message}}</h5>
+      <div class="{{data.message}}">
+        {{data.message}}
+      </div>
+      <div ng-controller="FirstCtrl">  
+        <input type="text" ng-model="data.message">
+        <h5>{{data.message}}</h5>
+        <div class="{{data.message}}">
+          {{data.message}}
+        </div>
+      </div>
+      <div ng-controller="SecondCtrl">  
+        <input type="text" ng-model="data.message">
         <h5>{{data.message}}</h5>
         <div class="{{data.message}}">
           {{data.message}}
