@@ -1,21 +1,37 @@
 var myApp = angular.module('myApp', []);
-myApp.factory('Data', function(){
-  return {message: "I am mlx come from xp."}
+
+
+myApp.factory('Friend', function(){
+  var friends = {};
+  friends = {mlx:[
+    { 
+      name: "wxb",
+      age: "24"
+    },
+    { 
+      name: "ll",
+      age: "25"
+    },
+    { 
+      name: "lh",
+      age: "24"
+    },
+    { 
+      name: "qjw",
+      age: "23"
+    },
+    { 
+      name: "ft",
+      age: "24"
+    },
+    { 
+      name: "whf",
+      age: "24"
+    }
+  ]};
+  return friends;
 });
 
-myApp.filter('reverse', function(Data){
-  return function(text){
-    return text.split("").reverse().join("")+ Data.message;
-  };
-})
-
-function FirstCtrl($scope, Data){
-  $scope.data = Data;
-}
-
-function SecondCtrl($scope, Data){
-  $scope.data = Data;
-  $scope.reverseMessage = function(message){
-    return message.split("").reverse().join("");
-  }
+function ListFriendCtrl($scope, Friend){
+  $scope.friends = Friend.mlx
 }
