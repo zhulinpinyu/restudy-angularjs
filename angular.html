@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>08 ngFilter</title>
+    <title>09 Built in Filters</title>
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap.css">
   </head>
   <body>
@@ -16,7 +16,7 @@
             <th>Age</th>
           </thead>
           <tbody>
-            <tr ng-repeat="f in friends|filter:search">
+            <tr ng-repeat="f in friends|orderBy: '-name'|limitTo: -3|filter:search">
               <td>{{f.name}}</td>
               <td>{{f.age}}</td>
             </tr>
