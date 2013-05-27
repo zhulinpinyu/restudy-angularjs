@@ -1,16 +1,16 @@
 var app = angular.module('behaviorApp', []);
 //自定义元素element
 app.directive('enter', function(){
-  return function(scope, element){
+  return function(scope, element, attrs){
     element.bind("mouseenter", function(){
-      console.log("I am inside!");
-    })
+      element.addClass(attrs.enter);
+    });
   }
 });
 app.directive('leave', function(){
-  return function(scope, element){
+  return function(scope, element, attrs){
     element.bind("mouseleave", function(){
-      console.log("Bye,I am leave!");
+      element.removeClass(attrs.enter);
     })
   }
 });
