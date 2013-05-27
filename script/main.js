@@ -1,47 +1,16 @@
-var app = angular.module('superhero', []);
+var app = angular.module('behaviorApp', []);
 //自定义元素element
-app.directive('supermane', function(){
-  return {
-    restrict: "E",
-    template: "<div>First directive</div>"
+app.directive('enter', function(){
+  return function(scope, element){
+    element.bind("mouseenter", function(){
+      console.log("I am inside!");
+    })
   }
 });
-
-//自定义属性
-app.directive('supermana', function(){
-  return {
-    restrict: "A",
-    link: function(){
-      alert('mlx, I am working as attribute!');
-    }
+app.directive('leave', function(){
+  return function(scope, element){
+    element.bind("mouseleave", function(){
+      console.log("Bye,I am leave!");
+    })
   }
 });
-
-//自定义class
-app.directive('supermanc', function(){
-  return {
-    restrict: "C",
-    link: function(){
-      alert('mlx,class I am working!');
-    }
-  }
-});
-
-app.directive('superman', function(){
-  return {
-    restrict: "A",
-    link: function(){
-      alert('mlx, I am working!, superman');
-    }
-  }
-});
-
-app.directive('flash', function(){
-  return {
-    restrict: "A",
-    link: function(){
-      alert('mlx, I am working!, flash');
-    }
-  }
-});
-
