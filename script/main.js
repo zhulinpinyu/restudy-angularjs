@@ -1,16 +1,19 @@
-var app = angular.module('behaviorApp', []);
-//自定义元素element
+var app = angular.module('twitterApp', []);
+
+app.controller('twitterCtrl',function($scope){
+  $scope.loadMoreTwitters = function(){
+    alert("Twitters Loading...");
+  }
+
+  $scope.deleteTwitters = function(){
+    alert("delete Twitters");
+  }
+});
+
 app.directive('enter', function(){
   return function(scope, element, attrs){
     element.bind("mouseenter", function(){
-      element.addClass(attrs.enter);
+      scope.$apply(attrs.enter);
     });
-  }
-});
-app.directive('leave', function(){
-  return function(scope, element, attrs){
-    element.bind("mouseleave", function(){
-      element.removeClass(attrs.enter);
-    })
   }
 });
