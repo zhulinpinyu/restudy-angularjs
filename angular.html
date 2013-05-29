@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>15 Directive to Directive Communication</title>
+    <title>***16 Understanding isolate Scope***</title>
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap.css">
   </head>
   <body>
-    <div ng-app="superApp">
-      <superhero>null</superhero>
-      <superhero name age addr>mlx</superhero>
-      <superhero age>age</superhero>
-      <superhero addr>addr</superhero>
+    <div ng-app="choreApp">
+      <div ng-controller="choreCtrl">
+        <kid done="logChore(chore)"></kid>
+      </div>
+      
     </div>
     <script type="text/javascript" src="vendor/angular.js"></script>
     <script type="text/javascript" src="script/main.js"></script>
