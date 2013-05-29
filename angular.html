@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>14 Directives Talking to Controllers</title>
+    <title>15 Directive to Directive Communication</title>
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap.css">
   </head>
   <body>
-    <div ng-app="twitterApp">
-      <div ng-controller="twitterCtrl">
-        <div enter="deleteTwitters()" >I am mlx!</div>
-      </div>
+    <div ng-app="superApp">
+      <superhero>null</superhero>
+      <superhero name age addr>mlx</superhero>
+      <superhero age>age</superhero>
+      <superhero addr>addr</superhero>
     </div>
     <script type="text/javascript" src="vendor/angular.js"></script>
     <script type="text/javascript" src="script/main.js"></script>
