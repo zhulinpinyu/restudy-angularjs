@@ -1,7 +1,7 @@
 var app = angular.module('drinkApp', []);
 
 app.controller('appCtrl', function($scope){
-
+  $scope.username = "zlpy";
 });
 
 app.directive('drink', function(){
