@@ -1,14 +1,17 @@
-var app = angular.module('drinkApp', []);
+var app = angular.module('phoneApp', []);
 
-app.controller('appCtrl', function($scope){
-  $scope.username = "zlpy";
+app.controller('phoneCtrl', function($scope){
+  $scope.callMe = function(msg){
+    alert(msg);
+  }
 });
 
-app.directive('drink', function(){
+app.directive('phone', function(){
   return {
     scope:{
-      name: '='
+      dial: '&'
     },
-    template: '<input type="text" ng-model="name">'
+    template: '<input type="text" ng-model="value">'+
+              '<div class="btn" ng-click="dial({msg:value})">Call Me!</div>'
   }
 });
