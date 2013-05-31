@@ -1,59 +1,26 @@
-var app = angular.module('superApp', []);
+var app = angular.module('phoneApp', []);
 
-app.directive('superhero', function(){
+app.controller('phoneCtrl', function($scope){
+  $scope.callMe = function(number,msg){
+    alert(number + "  " +msg);
+  }
+});
+
+app.directive('phone', function(){
   return {
-    restrict: "E",
-    scope: {},
-    controller: function($scope){
-      $scope.info = [];
-      this.addName = function(){
-        $scope.info.push("mlx");
-        console.log("1");
-        console.log($scope.info);
-      }
-      this.addAge = function(){
-        $scope.info.push("23");
-        console.log("2");
-        console.log($scope.info);
-      }
-      this.addAddr = function(){
-        $scope.info.push("wuxi");
-        console.log("3");
-        console.log($scope.info);
-      }
+    restrict: 'E',
+    scope:{
+      number: '@',
+      network: '=',
+      dial: '&'
     },
-    link: function(scope, element, attrs){
-      element.addClass("btn");
-      element.bind("mouseenter", function(){
-        console.log(scope.info);
-      });
-    }
-  }
-});
-
-app.directive('name', function(){
-  return{
-    require: "superhero",
-    link: function(scope, element, attrs, superheroCtrl){
-      superheroCtrl.addName();
-    }
-  }
-});
-
-app.directive('age', function(){
-  return{
-    require: "superhero",
-    link: function(scope, element, attrs, superheroCtrl){
-      superheroCtrl.addAge();
-    }
-  }
-});
-
-app.directive('addr', function(){
-  return{
-    require: "superhero",
-    link: function(scope, element, attrs, superheroCtrl){
-      superheroCtrl.addAddr();
+    template: '<div class="label label-info">Number:{{number}} Say: {{value}}</div>'+
+              '<select ng-model="network" ng-options="n for n in networks"></select>'+
+              '<input type="text" ng-model="value">'+
+              '<div class="btn btn-info" ng-click="dial({number:number,msg:value})">Call Me!</div>',
+    link: function(scope){
+      scope.networks=["CU", "CMCC", "CN"];
+      scope.network = scope.networks[0];
     }
   }
 });
