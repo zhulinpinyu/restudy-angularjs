@@ -1,15 +1,9 @@
 var app = angular.module('phoneApp', []);
 
 app.controller('phoneCtrl', function($scope){
-  $scope.callMe = function(number,msg){
-    alert(number + "  " +msg);
+  this.callMe = function(){
+    alert("我 Call !");
   }
-});
 
-app.directive('panel', function(){
-  return {
-    restrict: 'E',
-    transclude: true,
-    template: '<div class="well" ng-transclude>this is label component!</div>'
-  }
+  return $scope.phoneCtrl = this;
 });
