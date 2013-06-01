@@ -1,27 +1,18 @@
 var app = angular.module('app', []);
 
-/*该程序不健壮 存在bug*/
 /*
- 删除文字在输入 样式不加载 或者 样式加载混乱
+ directive 中link的function 参数顺序不能变 即 scope element attrs
 */
-app.directive('dumbPassword', function(){
-  var validElement = angular.element("<div>{{model.input}}</div>");
-  
-  this.link = function(scope){
-      scope.$watch('model.input', function(value){
-        if(value=="mlx"){
-          validElement.toggleClass("badge badge-success");
-        }
-      });
-    }
 
+app.controller('mdCtrl',function($scope){
+  console.log($scope);
+});
+
+
+app.directive('md', function(){
   return {
-    restrict: 'E',
-    replace:true,
-    template: '<div><input type="text" ng-model="model.input"></div>',
-    compile: function(tElem){
-      tElem.append(validElement);
-      return link;
+    link: function(attrs,element, scope){
+      console.log(attrs);
     } 
   }
 });
