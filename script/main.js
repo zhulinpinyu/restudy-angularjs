@@ -1,23 +1,19 @@
-var app = angular.module('phoneApp', []);
+var app = angular.module('app', []);
 
 
-var phoneAppStuff = {};
-phoneAppStuff.controllers = {};
-phoneAppStuff.controllers.phoneCtrl = function($scope){
-  this.callMe = function(){
-    alert("我 Call !");
-  }
-  return $scope.phoneCtrl = this;
-}
-
-phoneAppStuff.directives = {};
-phoneAppStuff.directives.well = function(){
+app.directive('zippy', function(){
   return {
     restrict: 'E',
-    template: '<div class="label">MLX</div>'
+    transclude: true,
+    scope: {
+      title: '@'
+    },
+    template: '<div><h3 ng-click="toggleContent()">{{title}}</h3><div ng-show="isContentVisible" ng-transclude>Hello World!</div></div>',
+    link: function(scope){
+      scope.isContentVisible = false;
+      scope.toggleContent = function(){
+        scope.isContentVisible = !scope.isContentVisible
+      }
+    }
   }
-}
-
-//app.filter();
-app.directive(phoneAppStuff.directives);
-app.controller(phoneAppStuff.controllers);
+});
