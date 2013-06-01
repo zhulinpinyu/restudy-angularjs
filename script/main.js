@@ -1,26 +1,18 @@
-var app = angular.module('phoneApp', []);
+var app = angular.module('app', []);
 
-app.controller('phoneCtrl', function($scope){
-  $scope.callMe = function(number,msg){
-    alert(number + "  " +msg);
-  }
+/*
+ directive 中link的function 参数顺序不能变 即 scope element attrs
+*/
+
+app.controller('mdCtrl',function($scope){
+  console.log($scope);
 });
 
-app.directive('phone', function(){
+
+app.directive('md', function(){
   return {
-    restrict: 'E',
-    scope:{
-      number: '@',
-      network: '=',
-      dial: '&'
-    },
-    template: '<div class="label label-info">Number:{{number}} Say: {{value}}</div>'+
-              '<select ng-model="network" ng-options="n for n in networks"></select>'+
-              '<input type="text" ng-model="value">'+
-              '<div class="btn btn-info" ng-click="dial({number:number,msg:value})">Call Me!</div>',
-    link: function(scope){
-      scope.networks=["CU", "CMCC", "CN"];
-      scope.network = scope.networks[0];
-    }
+    link: function(attrs,element, scope){
+      console.log(attrs);
+    } 
   }
 });
