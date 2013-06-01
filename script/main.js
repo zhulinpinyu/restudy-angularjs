@@ -1,19 +1,17 @@
 var app = angular.module('app', []);
 
 
-app.directive('zippy', function(){
+app.directive('dumbPassword', function(){
   return {
     restrict: 'E',
-    transclude: true,
-    scope: {
-      title: '@'
-    },
-    template: '<div><h3 ng-click="toggleContent()">{{title}}</h3><div ng-show="isContentVisible" ng-transclude>Hello World!</div></div>',
-    link: function(scope){
-      scope.isContentVisible = false;
-      scope.toggleContent = function(){
-        scope.isContentVisible = !scope.isContentVisible
-      }
+    replace:true,
+    template: '<div><input type="text" ng-model="model.input"><div>{{model.input}}</div></div>',
+    link: function(scope,element){
+      scope.$watch('model.input', function(value){
+        if(value=="mlx"){
+          element.children(1).toggleClass("badge badge-success");
+        }
+      });
     }
   }
 });
